@@ -1,0 +1,14 @@
+{
+  "name": "nuevo-repo",
+  "version": "1.0.0",
+  "description": "Testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress open"
+  },
+  "author": "Nicolas Rivera",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^13.1.0"
+  }
+}
