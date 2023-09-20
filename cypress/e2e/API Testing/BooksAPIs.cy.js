@@ -68,6 +68,7 @@ describe('Books API', ()=>{
                 headers: {'Content-Type': 'application/json',
                 'Authorization': `Bearer ${authToken}`},
                 body: dataOrders
+
             }).then((response)=>{
                 orderId = response.body.orderId
                 status = response.status
@@ -77,13 +78,13 @@ describe('Books API', ()=>{
         })
     }
     
-    function checkOrderIdLength(jsonData){
-        cy.log(`Your order id is: ${jsonData[0]}`)
+    function checkOrderIdLength(responseData){
+        cy.log(`Your order id is: ${responseData[0]}`)
         expect(jsonData[0]).to.have.lengthOf(21)
     }
 
-    function isOrderCreated(jsonData){
-        cy.log(`Is created: ${jsonData[2]}`)
+    function isOrderCreated(responseData){
+        cy.log(`Is created: ${responseData[2]}`)
         expect(jsonData[2]).to.eq(true)
     }
 
