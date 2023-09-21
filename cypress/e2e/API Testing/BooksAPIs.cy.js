@@ -2,7 +2,7 @@ describe('Books API', ()=>{
 
     // API variables
     let API_BOOKS_BASE_URL = Cypress.env('API_BOOKS_BASE_URL')
-    let API_Orders = `${API_BOOKS_BASE_URL}/orders`
+    let API_Orders = `${API_BOOKS_BASE_URL}/orders/`
     let API_Clients = `${API_BOOKS_BASE_URL}/api-clients`;
 
     // Response from APIs variables 
@@ -80,12 +80,12 @@ describe('Books API', ()=>{
     
     function checkOrderIdLength(responseData){
         cy.log(`Your order id is: ${responseData[0]}`)
-        expect(jsonData[0]).to.have.lengthOf(21)
+        expect(responseData[0]).to.have.lengthOf(21)
     }
 
     function isOrderCreated(responseData){
         cy.log(`Is created: ${responseData[2]}`)
-        expect(jsonData[2]).to.eq(true)
+        expect(responseData[2]).to.eq(true)
     }
 
 
@@ -114,6 +114,7 @@ describe('Books API', ()=>{
     })
 
     it('Validate response status from PostOrderId API', ()=>{
+
         getToken()
         .then(postOrderId)
         .then(checkResponseStatus)
